@@ -1,0 +1,27 @@
+<h1>Add an author</h1>
+<form action="/authors" method="post" class="author-form">
+  <input type="text" name="name" placeholder="Author Name">
+  <button>Submit</button>
+</form>
+
+
+<h1>Authors List</h1>
+{{#each authors}}
+<div>
+  <h2>{{name}}</h2>
+  <form action="/books/{{id}}" method="post">
+    <input type="text" name="title" placeholder="title">
+    <input type="text" name="pageCount" placeholder="No. of Pages">
+    <button>Add a new Book</button>
+
+    <h3>Books Listing</h3>
+    {{#each Books}}
+    <span>{{title}}</span>
+    <span>{{pageCount}} pages</span>
+    {{else}}No books aded
+    {{/each}}
+
+  </form>
+
+</div>
+{{/each}}
